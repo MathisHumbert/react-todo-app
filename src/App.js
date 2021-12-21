@@ -1,10 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from 'react-redux';
+import { BcgImages, Form, Header, List } from './components';
 
 function App() {
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <BcgImages />
+      <Header />
+      <Form />
+      <List />
     </div>
   );
 }
