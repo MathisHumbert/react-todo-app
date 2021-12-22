@@ -1,21 +1,29 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleCompleted } from '../redux/actions';
 import styled from 'styled-components';
 import check from '../images/icon-check.svg';
 import cross from '../images/icon-cross.svg';
 
 const Tasks = () => {
-  const { tasks } = useSelector((state) => state.reducer);
-  console.log(tasks);
+  const { show_tasks } = useSelector((state) => state.reducer);
+  const dispatch = useDispatch();
 
   return (
     <Wrapper>
-      {tasks.map((task) => {
+      {show_tasks.map((task) => {
         const { id, value, completed } = task;
         return (
           <article key={id}>
             <div className="container">
-              <button className="circle-button">{completed && check}</button>
+              <button
+                className={
+                  completed ? `circle-button completed` : `circle-button`
+                }
+                onClick={() => dispatch(toggleCompleted(id))}
+              >
+                {completed && <img src={check} alt="check-btn" />}
+              </button>
               <p className={completed ? 'completed' : null}>{value}</p>
             </div>
             <button className="delete-btn">
@@ -37,9 +45,9 @@ const Wrapper = styled.div`
     padding: 11.5px 20px;
     border-bottom: 1px solid var(--circle-color);
 
-    &:last-child {
+    /* &:last-child {
       border-bottom: none;
-    }
+    } */
   }
 
   .container {
@@ -56,6 +64,12 @@ const Wrapper = styled.div`
         color: var(--completed-color);
         text-decoration: line-through;
       }
+    }
+  }
+
+  .circle-button {
+    img {
+      width: 7px;
     }
   }
 

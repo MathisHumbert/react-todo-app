@@ -3,9 +3,7 @@ import {
   REMOVE_TASK,
   CLEAR_TASKS,
   TOGGLE_COMPLETED,
-  SHOW_ALL,
-  SHOW_ACTIVE,
-  SHOW_COMPLETED,
+  TOGGLE_SHOW,
   TOGGLE_THEME,
 } from './index';
 
@@ -13,4 +11,12 @@ const addTask = (value) => {
   return (dispatch) => dispatch({ type: ADD_TASK, payload: value });
 };
 
-export { addTask };
+const toggleCompleted = (id) => {
+  return (dispatch) => dispatch({ type: TOGGLE_COMPLETED, payload: id });
+};
+
+const toggleShow = (type) => {
+  return (dispatch) => dispatch({ type: TOGGLE_SHOW, payload: type });
+};
+
+export { addTask, toggleCompleted, toggleShow };

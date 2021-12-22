@@ -24,6 +24,7 @@ const Wrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: var(--shadow);
 
   h1 {
     color: var(--primary-color);
