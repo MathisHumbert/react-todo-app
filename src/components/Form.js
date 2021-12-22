@@ -37,6 +37,7 @@ const Wrapper = styled.form`
   padding: 10px 20px;
   border-radius: var(--radius);
   margin-bottom: 1rem;
+  box-shadow: var(--shadow);
 
   input {
     width: 100%;
@@ -52,6 +53,19 @@ const Wrapper = styled.form`
 
     &:focus {
       outline: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    height: 64px;
+    margin-bottom: 24px;
+
+    input {
+      font-size: 18px;
+
+      &::placeholder {
+        font-size: 18px;
+      }
     }
   }
 `;

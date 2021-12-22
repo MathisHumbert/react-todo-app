@@ -53,9 +53,24 @@ const Wrapper = styled.div`
     color: var(--ternary-color);
     text-transform: capitalize;
 
+    &:hover {
+      color: var(--secondary-color);
+    }
+
     &.active {
       color: var(--blue-color);
     }
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    position: absolute;
+    background: transparent;
+    box-shadow: none;
+    top: 6px;
+    right: 50%;
+    transform: translateX(50%);
+    width: fit-content;
   }
 `;
 

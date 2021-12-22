@@ -39,10 +39,9 @@ const Wrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: var(--shadow);
 
   h1 {
-    color: var(--primary-color);
+    color: #fff;
     letter-spacing: 10px;
   }
 
@@ -50,6 +49,14 @@ const Wrapper = styled.header`
     background: transparent;
     border: 0;
     cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    padding: 70px 0 40px 0;
+    h1 {
+      font-size: 40px;
+      letter-spacing: 15px;
+    }
   }
 `;
 export default Header;

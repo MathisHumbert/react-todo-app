@@ -52,6 +52,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--primary-color);
 }
 
 .circle-button.completed {
@@ -60,4 +61,28 @@ button {
     rgba(192, 88, 243, 1) 0%,
     rgba(85, 221, 255, 1) 100%
   );
+}
+
+.span-button {
+  background: var(--primary-color);
+  border-radius: 50%;
+  padding: 1px;
+}
+
+.span-button:hover {
+  background: linear-gradient(
+    330deg,
+    rgba(192, 88, 243, 1) 0%,
+    rgba(85, 221, 255, 1) 100%
+  );
+}
+.span-button:hover .circle-button {
+  border: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .circle-button {
+    width: 24px;
+    height: 24px;
+  }
 }

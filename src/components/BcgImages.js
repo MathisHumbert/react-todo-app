@@ -43,6 +43,7 @@ const Wrapper = styled.img`
   width: 100%;
   z-index: -10;
   object-fit: cover;
+  max-height: 200px;
 
   &.mobile {
     display: block;
@@ -50,6 +51,17 @@ const Wrapper = styled.img`
 
   &.desktop {
     display: none;
+  }
+
+  @media (min-width: 768px) {
+    max-height: 300px;
+    &.mobile {
+      display: none;
+    }
+
+    &.desktop {
+      display: block;
+    }
   }
 `;
 

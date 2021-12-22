@@ -10,7 +10,13 @@ import {
   CLEAR_COMPLETED,
 } from './index';
 
-const localTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const localTasks = JSON.parse(localStorage.getItem('tasks')) || [
+  {
+    id: 'kxhjj6it',
+    value: 'Add your own to do list!',
+    completed: false,
+  },
+];
 
 const initialState = {
   tasks: localTasks,

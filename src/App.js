@@ -22,6 +22,7 @@ const Wrapper = styled.main`
 
   .section-center {
     width: calc(100% - 48px);
+    max-width: 540px;
     margin: 0 auto;
   }
 `;

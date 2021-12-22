@@ -28,16 +28,19 @@ const Tasks = () => {
         return (
           <article key={id}>
             <div className="container">
-              <button
-                className={
-                  completed ? `circle-button completed` : `circle-button`
-                }
-                onClick={() => {
-                  dispatch(toggleCompleted(id));
-                }}
-              >
-                {completed && <img src={check} alt="check-btn" />}
-              </button>
+              <span className="span-button">
+                <button
+                  className={
+                    completed ? `circle-button completed` : `circle-button`
+                  }
+                  onClick={() => {
+                    dispatch(toggleCompleted(id));
+                  }}
+                >
+                  {completed && <img src={check} alt="check-btn" />}
+                </button>
+              </span>
+
               <p className={completed ? 'completed' : null}>{value}</p>
             </div>
             <button
@@ -61,16 +64,6 @@ const Wrapper = styled.div`
     justify-content: space-between;
     padding: 11.5px 20px;
     border-bottom: 1px solid var(--circle-color);
-
-    /* &:last-child {
-      border-bottom: none;
-    } */
-  }
-
-  h1 {
-    color: var(--secondary-color);
-    text-align: center;
-    padding-top: 1rem;
   }
 
   .container {
@@ -82,6 +75,7 @@ const Wrapper = styled.div`
       font-size: 12px;
       letter-spacing: -0.17px;
       color: var(--secondary-color);
+      cursor: pointer;
 
       &.completed {
         color: var(--completed-color);
@@ -102,6 +96,39 @@ const Wrapper = styled.div`
 
     img {
       width: 12px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    article {
+      padding: 20px;
+
+      &:hover .delete-btn {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+
+    .container {
+      p {
+        font-size: 18px;
+        letter-spacing: -0.25px;
+      }
+    }
+
+    .circle-button {
+      img {
+        width: 9px;
+      }
+    }
+
+    .delete-btn {
+      opacity: 0;
+      cursor: none;
+      transition: opacity 0.4s ease-in-out;
+      img {
+        width: 19px;
+      }
     }
   }
 `;

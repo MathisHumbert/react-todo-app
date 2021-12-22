@@ -11,6 +11,8 @@ const Footer = () => {
   );
 };
 
-const Wrapper = styled.footer``;
+const Wrapper = styled.footer`
+  position: relative;
+`;
 
 export default Footer;

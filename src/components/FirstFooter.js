@@ -34,5 +34,18 @@ const Wrapper = styled.div`
     font-size: 12px;
     color: var(--ternary-color);
   }
+
+  button:hover {
+    color: var(--secondary-color);
+  }
+
+  @media (min-width: 768px) {
+    padding: 20px;
+
+    button,
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 export default FirstFooter;
