@@ -1,12 +1,17 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleCompleted, toggleAmount, toggleShow } from '../redux/actions';
+import {
+  toggleCompleted,
+  toggleAmount,
+  toggleShow,
+  removeTask,
+} from '../redux/actions';
 import styled from 'styled-components';
 import check from '../images/icon-check.svg';
 import cross from '../images/icon-cross.svg';
 
 const Tasks = () => {
-  const { show_tasks, tasks_view, tasks } = useSelector(
+  const { show_tasks, tasks_view, tasks, amount } = useSelector(
     (state) => state.reducer
   );
   const dispatch = useDispatch();
@@ -35,7 +40,10 @@ const Tasks = () => {
               </button>
               <p className={completed ? 'completed' : null}>{value}</p>
             </div>
-            <button className="delete-btn">
+            <button
+              className="delete-btn"
+              onClick={() => dispatch(removeTask(id))}
+            >
               <img src={cross} alt="cross-btn" />
             </button>
           </article>
@@ -57,6 +65,12 @@ const Wrapper = styled.div`
     /* &:last-child {
       border-bottom: none;
     } */
+  }
+
+  h1 {
+    color: var(--secondary-color);
+    text-align: center;
+    padding-top: 1rem;
   }
 
   .container {

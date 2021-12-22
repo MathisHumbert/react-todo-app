@@ -43,6 +43,7 @@ const Wrapper = styled.form`
     height: 100%;
     border: 0;
     color: var(--input-color);
+    background: transparent;
 
     &::placeholder {
       color: var(--ternary-color);

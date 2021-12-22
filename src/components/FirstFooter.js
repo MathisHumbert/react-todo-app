@@ -1,15 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCompleted } from '../redux/actions';
 import styled from 'styled-components';
 
 const FirstFooter = () => {
+  const dispatch = useDispatch();
   const { amount } = useSelector((state) => state.reducer);
   return (
     <Wrapper>
       <p>
         {amount} item{amount > 1 ? 's' : null} left
       </p>
-      <button type="button">Clear Completed</button>
+      <button type="button" onClick={() => dispatch(clearCompleted())}>
+        Clear Completed
+      </button>
     </Wrapper>
   );
 };

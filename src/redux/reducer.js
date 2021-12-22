@@ -3,11 +3,11 @@ import uniqid from 'uniqid';
 import {
   ADD_TASK,
   REMOVE_TASK,
-  CLEAR_TASKS,
   TOGGLE_COMPLETED,
   TOGGLE_SHOW,
   TOGGLE_THEME,
   TOGGLE_AMOUNT,
+  CLEAR_COMPLETED,
 } from './index';
 
 const localTasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -24,8 +24,6 @@ const reducer = (state = initialState, { type, payload }) => {
   if (type === ADD_TASK) {
     const task = { id: uniqid(), value: payload, completed: false };
     const tasks = [...state.tasks, task];
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
     return { ...state, tasks, show_tasks: tasks };
   }
   if (type === TOGGLE_COMPLETED) {
@@ -35,9 +33,6 @@ const reducer = (state = initialState, { type, payload }) => {
       }
       return task;
     });
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-
     return { ...state, tasks };
   }
   if (type === TOGGLE_SHOW) {
@@ -51,12 +46,23 @@ const reducer = (state = initialState, { type, payload }) => {
     if (payload === 'completed') {
       show_tasks = state.tasks.filter((task) => task.completed === true);
     }
-
+    localStorage.setItem('tasks', JSON.stringify(state.tasks));
     return { ...state, show_tasks, tasks_view: payload };
   }
   if (type === TOGGLE_AMOUNT) {
     const amount = state.tasks.filter((task) => task.completed === false);
     return { ...state, amount: amount.length };
+  }
+  if (type === REMOVE_TASK) {
+    const tasks = state.tasks.filter((task) => task.id !== payload);
+    return { ...state, tasks };
+  }
+  if (type === CLEAR_COMPLETED) {
+    const tasks = state.tasks.filter((task) => task.completed === false);
+    return { ...state, tasks };
+  }
+  if (type === TOGGLE_THEME) {
+    return { ...state, theme: !state.theme };
   }
   return state;
 };

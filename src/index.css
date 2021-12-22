@@ -8,8 +8,20 @@
   --circle-color: #e3e4f1;
   --blue-color: #3a7cfd;
   --input-color: #393a4b;
+  --background: #f2f2f2;
   --radius: 5px;
   --shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+html.dark-theme {
+  --primary-color: #25273d;
+  --secondary-color: #c8cbe7;
+  --ternary-color: #5b5e7e;
+  --completed-color: #4d5067;
+  --circle-color: #393a4b;
+  --blue-color: #3a7cfd;
+  --input-color: #c8cbe7;
+  --background: #171823;
 }
 
 * {
@@ -17,12 +29,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
+  transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f2f2f2;
+  background: var(--background);
 }
 
 button {

@@ -1,7 +1,7 @@
 import {
   ADD_TASK,
   REMOVE_TASK,
-  CLEAR_TASKS,
+  CLEAR_COMPLETED,
   TOGGLE_COMPLETED,
   TOGGLE_SHOW,
   TOGGLE_THEME,
@@ -24,4 +24,24 @@ const toggleAmount = () => {
   return (dispatch) => dispatch({ type: TOGGLE_AMOUNT });
 };
 
-export { addTask, toggleCompleted, toggleShow, toggleAmount };
+const removeTask = (id) => {
+  return (dispatch) => dispatch({ type: REMOVE_TASK, payload: id });
+};
+
+const clearCompleted = () => {
+  return (dispatch) => dispatch({ type: CLEAR_COMPLETED });
+};
+
+const toggleTheme = () => {
+  return (dispatch) => dispatch({ type: TOGGLE_THEME });
+};
+
+export {
+  addTask,
+  toggleCompleted,
+  toggleShow,
+  toggleAmount,
+  removeTask,
+  clearCompleted,
+  toggleTheme,
+};
