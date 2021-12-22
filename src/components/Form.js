@@ -27,5 +27,31 @@ const Form = () => {
   );
 };
 
-const Wrapper = styled.form``;
+const Wrapper = styled.form`
+  width: 100%;
+  height: 48px;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    color: var(--input-color);
+
+    &::placeholder {
+      color: var(--ternary-color);
+      font-size: 12px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+`;
 export default Form;

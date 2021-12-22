@@ -19,5 +19,21 @@ const Header = () => {
   );
 };
 
-const Wrapper = styled.header``;
+const Wrapper = styled.header`
+  padding: 48px 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    color: var(--primary-color);
+    letter-spacing: 10px;
+  }
+
+  button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+`;
 export default Header;

@@ -39,6 +39,11 @@ const BcgImages = () => {
 };
 
 const Wrapper = styled.img`
+  position: absolute;
+  width: 100%;
+  z-index: -10;
+  object-fit: cover;
+
   &.mobile {
     display: block;
   }

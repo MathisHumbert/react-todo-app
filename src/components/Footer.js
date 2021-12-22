@@ -1,8 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FirstFooter, SecondFooter } from '.';
 
 const Footer = () => {
-  return <Wrapper>footer</Wrapper>;
+  return (
+    <Wrapper>
+      <FirstFooter />
+      <SecondFooter />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.footer``;
