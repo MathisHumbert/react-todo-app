@@ -1,10 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const FirstFooter = () => {
+  const { amount } = useSelector((state) => state.reducer);
   return (
     <Wrapper>
-      <p>items left</p>
+      <p>
+        {amount} item{amount > 1 ? 's' : null} left
+      </p>
       <button type="button">Clear Completed</button>
     </Wrapper>
   );

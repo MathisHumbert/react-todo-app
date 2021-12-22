@@ -1,13 +1,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleCompleted } from '../redux/actions';
+import { toggleCompleted, toggleAmount, toggleShow } from '../redux/actions';
 import styled from 'styled-components';
 import check from '../images/icon-check.svg';
 import cross from '../images/icon-cross.svg';
 
 const Tasks = () => {
-  const { show_tasks } = useSelector((state) => state.reducer);
+  const { show_tasks, tasks_view, tasks } = useSelector(
+    (state) => state.reducer
+  );
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(toggleAmount());
+    dispatch(toggleShow(tasks_view));
+  }, [tasks]);
 
   return (
     <Wrapper>
@@ -20,7 +27,9 @@ const Tasks = () => {
                 className={
                   completed ? `circle-button completed` : `circle-button`
                 }
-                onClick={() => dispatch(toggleCompleted(id))}
+                onClick={() => {
+                  dispatch(toggleCompleted(id));
+                }}
               >
                 {completed && <img src={check} alt="check-btn" />}
               </button>

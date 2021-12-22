@@ -7,6 +7,7 @@ import {
   TOGGLE_COMPLETED,
   TOGGLE_SHOW,
   TOGGLE_THEME,
+  TOGGLE_AMOUNT,
 } from './index';
 
 const localTasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -16,8 +17,7 @@ const initialState = {
   show_tasks: localTasks,
   theme: true,
   tasks_view: 'all',
-  active: 0,
-  completed: 0,
+  amount: 0,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -37,6 +37,7 @@ const reducer = (state = initialState, { type, payload }) => {
     });
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
+
     return { ...state, tasks };
   }
   if (type === TOGGLE_SHOW) {
@@ -53,6 +54,10 @@ const reducer = (state = initialState, { type, payload }) => {
 
     return { ...state, show_tasks, tasks_view: payload };
   }
+  if (type === TOGGLE_AMOUNT) {
+    const amount = state.tasks.filter((task) => task.completed === false);
+    return { ...state, amount: amount.length };
+  }
   return state;
 };
 
@@ -61,15 +66,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-
-// const { active, completed } = tasks.reduce(
-//   (acc, curr) => {
-//     if (curr.completed) {
-//       completed++;
-//     } else {
-//       active++;
-//     }
-//     return acc;
-//   },
-//   { active: 0, completed: 0 }
-// );

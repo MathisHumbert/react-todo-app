@@ -5,6 +5,7 @@ import {
   TOGGLE_COMPLETED,
   TOGGLE_SHOW,
   TOGGLE_THEME,
+  TOGGLE_AMOUNT,
 } from './index';
 
 const addTask = (value) => {
@@ -19,4 +20,8 @@ const toggleShow = (type) => {
   return (dispatch) => dispatch({ type: TOGGLE_SHOW, payload: type });
 };
 
-export { addTask, toggleCompleted, toggleShow };
+const toggleAmount = () => {
+  return (dispatch) => dispatch({ type: TOGGLE_AMOUNT });
+};
+
+export { addTask, toggleCompleted, toggleShow, toggleAmount };
