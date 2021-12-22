@@ -11,7 +11,7 @@ import check from '../images/icon-check.svg';
 import cross from '../images/icon-cross.svg';
 
 const Tasks = () => {
-  const { show_tasks, tasks_view, tasks, amount } = useSelector(
+  const { show_tasks, tasks_view, tasks } = useSelector(
     (state) => state.reducer
   );
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Tasks = () => {
   React.useEffect(() => {
     dispatch(toggleAmount());
     dispatch(toggleShow(tasks_view));
-  }, [tasks]);
+  }, [tasks, dispatch, tasks_view]);
 
   return (
     <Wrapper>

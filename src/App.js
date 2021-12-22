@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { BcgImages, Form, Header, List, Footer } from './components';
 
